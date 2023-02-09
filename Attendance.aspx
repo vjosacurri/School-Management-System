@@ -185,6 +185,17 @@
                         <span class="Llink-text ">Employee</span>
                     </a>
                 </li>
+                <!-- <li class="Lnav-item">
+                    <a href="Students.aspx" class="Lnav-link ">
+                        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="user-graduate"
+                            class="svg-inline--fa fa-user-graduate fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 448 512">
+                        </svg>
+                        <span class="Llink-text ">Student</span>
+                    </a>
+                </li>
+                -->
+
                 <li class="Lnav-item">
                     <a href="Students.aspx" class="Lnav-link ">
                         <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="user-graduate"
