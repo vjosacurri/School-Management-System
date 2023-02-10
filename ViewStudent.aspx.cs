@@ -14,15 +14,18 @@ public partial class ViewStudent : System.Web.UI.Page
 {
     EStudents std = new EStudents();
     SOperation stdHandler = new SOperation();
-    protected void Page_Load(object sender, EventArgs e)
+    protected void Page_Load(object sender, EventArgs e) //event handler
     {
         if (Request.QueryString["Std_Id"] != null)
         {
-            int id = int.Parse(Request.QueryString["Std_Id"]);
-            DataSet ds = stdHandler.GetStudentByID(id);
+            int id = int.Parse(Request.QueryString["Std_Id"]);//e merr id e studentit nga query string dhe e konverton ne int
+            DataSet ds = stdHandler.GetStudentByID(id); //e thirr metoden getstudentbyid prej SOoperation dhe ja dergon student id si argument
+            //metoda e kthen nje dataset, qe eshte koleksion i tabelave, dhe ajo returned dataset ruhet ne variablen ds
+            //ds ruan te dhenat e studenteve te kthyera nga databaza varesisht nga id e dhene
             if (ds.Tables[0].Rows.Count > 0)
             {
                 SID.Text = ds.Tables[0].Rows[0]["Std_Id"].ToString();
+                //meret nga nje objekt dhe kthehet ne text
                 SFname.Text = ds.Tables[0].Rows[0]["Std_Fname"].ToString();
                 SLname.Text = ds.Tables[0].Rows[0]["Std_Lname"].ToString();
                 SEmail.Text = ds.Tables[0].Rows[0]["Std_Email"].ToString();

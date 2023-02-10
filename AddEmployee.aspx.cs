@@ -100,15 +100,18 @@ public partial class AddEmployee : System.Web.UI.Page
     {
         try
         {
+            //eshte inicializuar mysql adapteri, si ure lidhese mes dataset dhe sql serverit
             con.Open();
             MySqlDataAdapter sda = new MySqlDataAdapter("SELECT IFNULL(MAX(E_ID),0)+1 FROM Employee", con);
             DataTable dt = new DataTable();
-            sda.Fill(dt);
+            sda.Fill(dt);//fill ndryshon te dhenat ne dataset per tu pershtatur me ato te dhenat e burimeve si update psh, duke perdorur transact-sql
             EID.Text = dt.Rows[0][0].ToString();
             ERole.DataSource = empHandler.GetEmployeeRole();
             ERole.DataTextField = "Role_Name";
             ERole.DataBind();
             con.Close();
+            //kur sqldataadapter mbush nje dataset, krijon tabelat e nevojshme per te dhenat e kthyera
+            //perdoret per rritje te performances
         }
         catch (MySqlException ex)
         {
